@@ -3,7 +3,6 @@ package logstasher
 import (
 	"bytes"
 	"encoding/json"
-	"log"
 	"net/http"
 	"net/http/httptest"
 	"reflect"
@@ -16,11 +15,10 @@ import (
 // Copied and adapted from martini's logger_test.go
 func Test_Logger(t *testing.T) {
 	buff := bytes.NewBufferString("")
-	logger := log.New(buff, "", 0)
 	recorder := httptest.NewRecorder()
 
 	m := martini.New()
-	m.Use(Logger(logger))
+	m.Use(Logger(buff))
 	m.Use(func(res http.ResponseWriter) {
 		res.WriteHeader(http.StatusNotFound)
 	})

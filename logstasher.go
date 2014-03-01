@@ -1,7 +1,10 @@
+// Package logstasher is a Martini middleware that prints logstash-compatiable
+// JSON to a given io.Writer for each HTTP request.
 package logstasher
 
 import (
 	"encoding/json"
+	"io"
 	"log"
 	"net/http"
 	"time"
@@ -17,11 +20,12 @@ type logstashEvent struct {
 	Status    int                 `json:"status"`
 	Size      int                 `json:"size"`
 	Duration  float64             `json:"duration"`
-	Params    map[string][]string `json:"params"`
+	Params    map[string][]string `json:"params,omitempty"`
 }
 
 // Logger returns a middleware handler prints the request in a Logstash-JSON compatiable format
-func Logger(out *log.Logger) martini.Handler {
+func Logger(writer io.Writer) martini.Handler {
+	out := log.New(writer, "", 0)
 	return func(res http.ResponseWriter, req *http.Request, c martini.Context, log *log.Logger) {
 		start := time.Now()
 
