@@ -1,5 +1,7 @@
 # logstasher
 
+[![wercker status](https://app.wercker.com/status/3e29f62318a057c5d9a48c6b376c5b07/m/ "wercker status")](https://app.wercker.com/project/bykey/3e29f62318a057c5d9a48c6b376c5b07)
+
 logstasher is a Martini middleware that prints logstash-compatiable JSON to an `io.Writer` for each HTTP request.
 
 Used in conjunction with the [rotating file writer](http://github.com/mipearson/rfw) it allows for rotatable logs ready to feed directly into logstash with no parsing.
