@@ -1,6 +1,6 @@
 # logstasher
 
-[![wercker status](https://app.wercker.com/status/3e29f62318a057c5d9a48c6b376c5b07/m/ "wercker status")](https://app.wercker.com/project/bykey/3e29f62318a057c5d9a48c6b376c5b07)
+[![wercker status](https://app.wercker.com/status/3e29f62318a057c5d9a48c6b376c5b07/s/ "wercker status")](https://app.wercker.com/project/bykey/3e29f62318a057c5d9a48c6b376c5b07) [![GoDoc](https://godoc.org/github.com/mipearson/logstasher?status.png)](https://godoc.org/github.com/mipearson/logstasher)
 
 logstasher is a Martini middleware that prints logstash-compatiable JSON to an `io.Writer` for each HTTP request.
 
