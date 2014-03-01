@@ -1,4 +1,4 @@
-package logstash_logger
+package logstasher
 
 import (
 	"bytes"
@@ -25,7 +25,8 @@ func Test_Logger(t *testing.T) {
 		res.WriteHeader(http.StatusNotFound)
 	})
 
-	req, err := http.NewRequest("GET", "http://localhost:3000/foobar", nil)
+	req, err := http.NewRequest("GET", "http://localhost:3000/foobar?baz=quux", nil)
+	req.ParseForm()
 	if err != nil {
 		t.Error(err)
 	}
@@ -46,19 +47,20 @@ func Test_Logger(t *testing.T) {
 	refute(t, event.Duration, 0)
 	refute(t, event.Timestamp, "")
 	expect(t, event.Size, 0)
+	expect(t, event.Params, map[string][]string{"baz": []string{"quux"}})
 }
 
 /* Test Helpers */
 func expect(t *testing.T, a interface{}, b interface{}) {
-	if a != b {
+	if !reflect.DeepEqual(a, b) {
 		_, _, line, _ := runtime.Caller(1)
-		t.Errorf("line %d: Expected %v (type %v) - Got %v (type %v)", line, b, reflect.TypeOf(b), a, reflect.TypeOf(a))
+		t.Errorf("line %d: Got %#v, expected %#v", line, a, b)
 	}
 }
 
 func refute(t *testing.T, a interface{}, b interface{}) {
-	if a == b {
+	if reflect.DeepEqual(a, b) {
 		_, _, line, _ := runtime.Caller(1)
-		t.Errorf("line %d: Did not expect %v (type %v) - Got %v (type %v)", line, b, reflect.TypeOf(b), a, reflect.TypeOf(a))
+		t.Errorf("line %d: Got %#v, which was not expected", line, a)
 	}
 }
