@@ -1,4 +1,4 @@
-# logstasher
+# logstasher [![wercker status](https://app.wercker.com/status/750f4584767e9b0cb38448ec2fc1e2ae/s/ "wercker status")](https://app.wercker.com/project/bykey/750f4584767e9b0cb38448ec2fc1e2ae)
 
 [![GoDoc](https://godoc.org/github.com/martini-contrib/logstasher?status.png)](https://godoc.org/github.com/martini-contrib/logstasher)
 
