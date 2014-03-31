@@ -9,7 +9,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/codegangsta/martini"
+	"github.com/go-martini/martini"
 )
 
 // Copied and adapted from martini's logger_test.go

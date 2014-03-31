@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/codegangsta/martini"
+	"github.com/go-martini/martini"
 )
 
 type logstashEvent struct {
