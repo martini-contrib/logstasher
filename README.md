@@ -2,7 +2,7 @@
 
 [![GoDoc](https://godoc.org/github.com/martini-contrib/logstasher?status.png)](https://godoc.org/github.com/martini-contrib/logstasher)
 
-logstasher is a Martini middleware that prints logstash-compatiable JSON to an `io.Writer` for each HTTP request.
+logstasher is a Martini middleware that prints logstash-compatible JSON to an `io.Writer` for each HTTP request.
 
 Here's an example from one of the Go microservices we have at @bikeexchange :
 
